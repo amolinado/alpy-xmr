@@ -33,6 +33,7 @@ WORKDIR /home
 # Install XMRIG
 RUN git clone https://github.com/xmrig/xmrig xmrig_source \
  && cd xmrig_source \
+ && sed -i 's/kDonateLevel = 5;/kDonateLevel = 0;/' src/donate.h \
  && mkdir build \
  && cmake -DCMAKE_BUILD_TYPE=Release . \
  && make \
